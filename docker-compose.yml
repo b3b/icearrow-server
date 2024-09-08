@@ -1,5 +1,14 @@
 services:
 
+  hippos:
+    build: .
+    ports:
+      - "127.0.0.1:80:80"
+    depends_on:
+      - walrus
+      - redis
+    command: "--port 80 --redis=redis://redis:6379/0 --walrus http://walrus:31415"
+
   walrus:
       build:
         context: ./walrus
@@ -7,6 +16,11 @@ services:
         - "127.0.0.1:31415:31415"
       volumes:
         - "sui_config:/home/sui/.sui/sui_config"
+
+  redis:
+    image: redis:latest
+    ports:
+        - "127.0.0.1:6379:6379"
 
 volumes:
   sui_config:
