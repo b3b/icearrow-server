@@ -1,0 +1,12 @@
+services:
+
+  walrus:
+      build:
+        context: ./walrus
+      ports:
+        - "127.0.0.1:31415:31415"
+      volumes:
+        - "sui_config:/home/sui/.sui/sui_config"
+
+volumes:
+  sui_config:
