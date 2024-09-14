@@ -1,20 +1,36 @@
-# Hipposhare 📥🦛📤
+# IceArrow server
 
-This project aims to build a file-sharing platform, using:
+This repository represents the backend component of the [IceArrow](https://github.com/kkomelin/icearrow) app.
 
-- [Yopass](https://github.com/jhaals/yopass/tree/7e50bef6aacc5b401149914fd3472404f1b65e5c), a platform designed for the secure sharing of secrets, passwords, and files.
-- And the [Walrus](https://docs.walrus.site/) decentralized storage.
+The IceArrow backend is built on top of:
 
+- [Yopass](https://github.com/jhaals/yopass/tree/7e50bef6aacc5b401149914fd3472404f1b65e5c): A platform for the secure sharing of secrets, passwords, and files.
+- [Walrus](https://docs.walrus.site/): A decentralized storage and data availability protocol optimized for large binary files.
 
 ## Getting Started
 
-To run the project locally, using Docker:
+To run the project locally using Docker:
 
-```sh
+```bash
 docker-compose up --build
 ```
 
 ### Accessing the application
 
-- User web interface and storage API: available at http://127.0.0.1
-- Walrus HTTP API: available at http://127.0.0.1:31415
+
+- Storage API: Available at http://127.0.0.1/secret
+- Walrus HTTP API: Available at http://127.0.0.1:31415
+
+### API Usage Example
+
+For examples of using the service and interacting with the Walrus API, refer to [walrus.ipynb](./notebooks/walrus.ipynb).
+
+## Go Packages
+
+- `walrus/walrus.go`: Implements `WalrusClient`, a client to interact with the Walrus HTTP API.
+- `hippo/hippo.go`: Defines the `Hippo` struct, connecting with the Walrus storage via `WalrusClient`.
+
+## Commands
+
+- `walrus-server`: Command to run the server.
+- `walrus-client`: Wrapper for the Walrus package.
