@@ -1,11 +1,11 @@
 SRC := $(wildcard *.go) $(wildcard */*.go)
 
-all: format test walrus-client hippo-server
+all: format test walrus-client icearrow-server
 
 walrus-client: cmd/walrus-client/main.go walrus/walrus.go
 	go build -o $@ $<
 
-hippo-server: cmd/hippo-server/main.go hippo/hippo.go
+icearrow-server: cmd/icearrow-server/main.go hippo/hippo.go
 	go build -o $@ $<
 
 .PHONY: test
@@ -24,5 +24,5 @@ format:
 .PHONY: clean
 clean:
 	go clean
-	rm -f walrus-client hippo-server
+	rm -f walrus-client icearrow-server
 	rm -f coverage.out

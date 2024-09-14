@@ -32,5 +32,5 @@ For examples of using the service and interacting with the Walrus API, refer to 
 
 ## Commands
 
-- `walrus-server`: Command to run the server.
+- `icearrow-server`: Command to run the server.
 - `walrus-client`: Wrapper for the Walrus package.

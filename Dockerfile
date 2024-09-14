@@ -1,9 +1,9 @@
-FROM golang:1.21.8 as hippos
-RUN mkdir -p /hippos
-WORKDIR /hippos
+FROM golang:1.21.8 as icearrow
+RUN mkdir -p /icearrow
+WORKDIR /icearrow
 COPY . .
 RUN make
 
 FROM jhaals/yopass:latest
-COPY --from=hippos /hippos/walrus-client /hippos/hippo-server /
-ENTRYPOINT ["/hippo-server"]
+COPY --from=icearrow /icearrow/walrus-client /icearrow/icearrow-server /
+ENTRYPOINT ["/icearrow-server"]

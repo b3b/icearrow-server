@@ -18,4 +18,4 @@ Dockerfile
 **/__pycache__
 
 /walrus-client
-/hippo-server
+/icearrow-server
