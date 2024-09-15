@@ -8,6 +8,7 @@ services:
       - walrus
       - redis
     command: "--port 80 --redis=redis://redis:6379/0 --walrus http://walrus:31415"
+    command: "--port 80 --redis=redis://redis:6379/0 --walrus http://walrus:31415 --max-length 33554432"
 
   walrus:
       build:
